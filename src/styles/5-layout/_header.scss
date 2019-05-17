@@ -1,1 +1,62 @@
 /* Header -------------------- */
+
+.header {
+
+    &-branding {
+
+        & > * {
+            @extend .p-4,
+        }
+
+        &-logo {
+            padding: 1rem;
+        }
+
+        &-contact {
+            &, a {
+                @extend .text-secondary;
+                @extend .mr-5;
+            }
+        }
+
+    }
+
+
+    &-banner {
+        height: 340px;
+
+        &-img {
+            right: 0;
+            height: 100%;
+            width: 55%;
+            background: url("../../assets/00_Header.png");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: scroll;
+            background-position: center;
+        }
+
+        &-title-wrapper {
+            &-intend {
+                margin-left: 8%;
+
+                h1 {
+                    span {
+                        @extend .text-white;
+                        @extend .p-3;
+                        @include erfahr_bg_gradient();
+                    }
+                    .spacer {
+                        height: map-get( $spacers ,1 );
+                    }
+                }
+            }
+        }
+
+    }
+
+    &-features {
+        @include erfahr_bg_gradient();
+    }
+
+}

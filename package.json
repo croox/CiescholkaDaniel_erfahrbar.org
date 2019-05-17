@@ -17,6 +17,7 @@
     "@babel/preset-env": "^7.4.4",
     "@babel/register": "^7.4.4",
     "browser-sync": "^2.26.5",
+    "compass-importer": "^0.4.1",
     "del": "^4.1.1",
     "gulp": "^4.0.2",
     "gulp-babel": "^8.0.0",

@@ -7,6 +7,7 @@ import minifyCSS from 'gulp-csso';
 import noop from 'gulp-noop';
 import rename from 'gulp-rename';
 import compileSass from 'gulp-sass';
+import compass from 'compass-importer';
 import uglify from 'gulp-uglify-es';
 import {argv} from 'yargs';
 
@@ -62,6 +63,7 @@ const scripts = () => {
 const styles = () => {
     return gulp.src(paths.styles.src.main, {sourcemaps: true})
         .pipe(compileSass({
+			importer: compass,
             outputStyle: 'expanded'
         })
             .on('error', compileSass.logError))

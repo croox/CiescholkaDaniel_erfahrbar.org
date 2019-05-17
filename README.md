@@ -25,5 +25,17 @@ gulp
 gulp --prod
 ```
 
+
+## Requirements
+
+???
+gulp cli globally installed
+sass
+compass
+
+
+## Credits
+
 Based on [MattKohnen/bootstrap-4-gulp-4-sass](https://github.com/MattKohnen/bootstrap-4-gulp-4-sass) commit [426b4d0](https://github.com/MattKohnen/bootstrap-4-gulp-4-sass/commit/426b4d0979070de8c7e3c32d9f732034d1f5e49c).
-A fork of [wapbamboogie/bootstrap-4-boilerplate](https://github.com/wapbamboogie/bootstrap-4-boilerplate) with gulp 4 support and written in ES6.
+A fork of [wapbamboogie/bootstrap-4-boilerplate](https://github.com/wapbamboogie/bootstrap-4-boilerplate) with added gulp 4 support and written in ES6.
+

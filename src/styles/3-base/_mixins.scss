@@ -1,1 +1,12 @@
 /* Custom Mixins -------------------- */
+
+@mixin erfahr_bg_gradient() {
+    // https://colorzilla.com/gradient-editor/#6eb45c+0,93d981+100
+    background-color: rgb(110,180,92); // Old browsers
+    @include filter-gradient(#6eb45c, #93d981, horizontal); // IE6-9 fallback on horizontal gradient
+    @include background-image(linear-gradient(left top,  rgba(110,180,92,1) 0%,rgba(147,217,129,1) 100%));
+}
+
+.erfahr-bg-gradient {
+    @include erfahr_bg_gradient();
+}
