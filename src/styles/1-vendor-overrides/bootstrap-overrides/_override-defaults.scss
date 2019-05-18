@@ -3,7 +3,21 @@
 
 // Color system
 
-$primary:       #6EB45C;
+
+// $blue:    #007bff;
+// $indigo:  #6610f2;
+// $purple:  #6f42c1;
+// $pink:    #e83e8c;
+// $red:     #dc3545;
+// $orange:  #fd7e14;
+// $yellow:  #ffc107;
+$green:   #6EB45C;
+// $teal:    #20c997;
+// $cyan:    #17a2b8;
+
+$primary:       $green;
+// $primary-light: #93d981; // not a bootstrap variable
+$primary-light: lighten( $green, 12% ); // not a bootstrap variable
 // $secondary:     $gray-600;
 // $success:       $green;
 // $info:          $cyan;

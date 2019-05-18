@@ -1,1 +1,10 @@
 /* Base Styles -------------------- */
+
+.heading-multiline {
+    & > span {
+        &:not(:last-child):after {
+            content: '\A';
+            white-space: pre;
+        }
+    }
+}

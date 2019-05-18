@@ -3,16 +3,24 @@
 .header {
 
     &-branding {
+        @extend .row;
 
         & > * {
-            @extend .p-4,
+            @extend .col;
+            @extend .align-self-center;
         }
 
         &-logo {
-            padding: 1rem;
+            @extend .col-3;
+            @extend .p-3;
+            @extend .text-right;
+            @extend .border-bottom;
+            @extend .border-primary;
         }
 
         &-contact {
+            @extend .col-4;
+            @extend .p-4;
             &, a {
                 @extend .text-secondary;
                 @extend .mr-5;
@@ -23,6 +31,8 @@
 
 
     &-banner {
+        @extend .container-fluid;
+        @extend .position-relative;
         height: 340px;
 
         &-img {
@@ -37,26 +47,49 @@
         }
 
         &-title-wrapper {
+            @extend .row;
+            @extend .position-relative;
+            @extend .h-100;
+
+            & > .col {
+                @extend .align-self-center;
+            }
+
             &-intend {
                 margin-left: 8%;
+            }
 
-                h1 {
-                    span {
-                        @extend .text-white;
-                        @extend .p-3;
-                        @include erfahr_bg_gradient();
-                    }
-                    .spacer {
-                        height: map-get( $spacers ,1 );
+            .heading-multiline {
+                & > span {
+                    @extend .text-white;
+                    @extend .p-3;
+                    @include erfahr_bg_gradient();
+                    &:not(:last-child):after {
+                        line-height: 2.75;
                     }
                 }
             }
+
         }
 
     }
 
     &-features {
+        @extend .container-fluid;
+        @extend .text-white;
+        @extend .p-3;
         @include erfahr_bg_gradient();
+
+        .card {
+            @extend .text-center;
+            @extend .bg-transparent;
+            @extend .border-0;
+
+            &-body {
+                @extend .pb-0;
+            }
+        }
+
     }
 
 }
