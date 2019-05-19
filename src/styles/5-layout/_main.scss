@@ -1,0 +1,113 @@
+
+main {
+
+    & > .section {
+
+
+        /**
+         * section layout
+         */
+
+        @extend .container-fluid;
+        &,
+        & > .container {
+            @extend .py-3;
+        }
+
+        .title {
+            @extend .col-3;
+
+        }
+
+        .content {
+            @extend .col;
+
+            &-main {
+                @extend .col-7;
+            }
+
+            &-main-narrow {
+                @extend .col-5;
+            }
+
+            &-highlight {
+                @extend .col-4;
+
+                ul {
+                    list-style: none;
+                    @extend .p-0;
+
+                    & > li {
+                        &:not(:last-child) {
+                            @extend .mb-2;
+                        }
+                    }
+                }
+
+            }
+
+        }
+
+
+        /**
+         * section fonts
+         */
+
+        @extend .text-justify;
+        .title {
+            @extend .text-right;
+            &-short {
+                @extend .font-weight-bold;
+            }
+        }
+        .content-highlight {
+            @extend .text-left;
+        }
+
+
+        /**
+         * section colors
+         */
+
+        &:not(.section--bg-gradient) {
+            .title-title,
+            .content-highlight {
+                @include erfahr_text_gradient();
+            }
+        }
+
+        &--bg-gradient {
+            @include erfahr_bg_gradient();
+
+            .title-short,
+            .title-title,
+            .content,
+            .content-highlight {
+                &, a {
+                    @extend .text-white;
+                }
+            }
+
+        }
+
+
+        /**
+         * section custom
+         */
+
+        &#idee {
+            // ...
+        }
+
+        &#ziel {
+            // ...
+        }
+
+        &#profile {
+            // ...
+        }
+
+
+    }
+
+}

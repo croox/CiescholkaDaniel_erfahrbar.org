@@ -6,3 +6,11 @@
     @include filter-gradient( $green, $primary-light, horizontal); // IE6-9 fallback on horizontal gradient
     @include background-image(linear-gradient(left top,  rgba($green,1) 0%,rgba($primary-light,1) 100%));
 }
+
+// https://codepen.io/manabox/pen/oZvZWx
+@mixin erfahr_text_gradient($angle: 0deg, $color_from: $primary, $color_to: $primary-light) {
+  color: $color_from;
+  background: -webkit-linear-gradient($angle, $color_from, $color_to );
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+}
