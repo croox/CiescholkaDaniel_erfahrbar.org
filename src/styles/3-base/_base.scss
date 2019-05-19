@@ -9,8 +9,34 @@
     }
 }
 
-img.cover-x {
-    max-width: 100%;
-    height: auto;
-    object-fit: cover;
+img {
+    &.cover-x {
+        max-width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+}
+
+.list {
+    &-style-none {
+        list-style: none;
+        @extend .p-0;
+
+        & > li {
+            &:not(:last-child) {
+                @extend .mb-2;
+            }
+        }
+    }
+
+    &-inline {
+        margin: 0;
+        padding: 0;
+        li {
+            @extend .d-inline;
+            &:not(:last-child) {
+                @extend .mr-5;
+            }
+        }
+    }
 }

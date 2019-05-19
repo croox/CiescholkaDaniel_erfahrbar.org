@@ -32,18 +32,6 @@ main {
 
             &-highlight {
                 @extend .col-4;
-
-                ul {
-                    list-style: none;
-                    @extend .p-0;
-
-                    & > li {
-                        &:not(:last-child) {
-                            @extend .mb-2;
-                        }
-                    }
-                }
-
             }
 
         }

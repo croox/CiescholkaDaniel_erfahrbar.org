@@ -1,1 +1,29 @@
 /* Footer -------------------- */
+
+.footer {
+
+    @extend .container;
+
+    &, a {
+        @extend .text-secondary;
+    }
+
+    & > .row {
+        justify-content: space-between;
+        & > * {
+            @extend .align-self-center;
+            @extend .p-4;
+        }
+    }
+
+    &-copyright {
+        // ...
+    }
+
+    &-nav {
+        ul {
+            @extend .list-inline;
+        }
+    }
+
+}
