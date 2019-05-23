@@ -1,18 +1,21 @@
 /* Header -------------------- */
 
+
 .header {
+    @extend .container-wide;
 
     &-branding {
+
         @extend .row;
 
         & > * {
             @extend .col;
             @extend .align-self-center;
+            @extend .p-3;
         }
 
         &-logo {
             @extend .col-3;
-            @extend .p-3;
             @extend .text-right;
             @extend .border-bottom;
             @extend .border-primary;
@@ -20,11 +23,15 @@
 
         &-contact {
             @extend .col-4;
-            @extend .p-4;
             &, a {
                 @extend .text-secondary;
                 @extend .mr-5;
             }
+        }
+
+        .col-spacer {
+
+
         }
 
     }
@@ -62,10 +69,11 @@
             .heading-multiline {
                 & > span {
                     @extend .text-white;
-                    @extend .p-3;
+                    @extend .py-2;
+                    @extend .px-3;
                     @include erfahr_bg_gradient();
                     &:not(:last-child):after {
-                        line-height: 2.75;
+                        line-height: 2.2;
                     }
                 }
             }

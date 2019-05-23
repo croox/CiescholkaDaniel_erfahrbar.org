@@ -8,32 +8,34 @@ main {
          * section layout
          */
 
-        @extend .container-fluid;
+        @extend .container-wide;
         &,
         & > .container {
-            @extend .py-3;
+            @extend .py-5;
         }
 
-        .title {
-            @extend .col-3;
+        .row {
+            .title {
+                @extend .col-3;
 
-        }
-
-        .content {
-            @extend .col;
-
-            &-main {
-                @extend .col-7;
             }
 
-            &-main-narrow {
-                @extend .col-5;
-            }
+            .content {
+                @extend .col-9;
 
-            &-highlight {
-                @extend .col-4;
-            }
+                &-main {
+                    @extend .col-7;
+                }
 
+                &-main-narrow {
+                    @extend .col-5;
+                }
+
+                &-highlight {
+                    @extend .col-4;
+                }
+
+            }
         }
 
 
@@ -42,14 +44,16 @@ main {
          */
 
         @extend .text-justify;
-        .title {
-            @extend .text-right;
-            &-short {
-                @extend .font-weight-bold;
+        .row {
+            .title {
+                @extend .text-right;
+                &-short {
+                    @extend .font-weight-bold;
+                }
             }
-        }
-        .content-highlight {
-            @extend .text-left;
+            .content-highlight {
+                @extend .text-left;
+            }
         }
 
 
@@ -58,26 +62,29 @@ main {
          */
 
         &:not(.section--bg-gradient) {
-            .title-title,
-            .content-highlight {
-                @include erfahr_text_gradient();
+            .row {
+                .title-title,
+                .content-highlight {
+                    @include erfahr_text_gradient();
+                }
             }
         }
 
         &--bg-gradient {
             @include erfahr_bg_gradient();
 
-            .title-short,
-            .title-title,
-            .content,
-            .content-highlight {
-                &, a {
-                    @extend .text-white;
+            .row {
+                .title-short,
+                .title-title,
+                .content,
+                .content-highlight {
+                    &, a {
+                        @extend .text-white;
+                    }
                 }
             }
 
         }
-
 
         /**
          * section custom
@@ -85,10 +92,16 @@ main {
 
         &#idee {
             // ...
+            &,
+            & > .container {
+                @extend .pb-0;
+            }
         }
 
         &#ziel {
             // ...
+
+
         }
 
         &#profile {

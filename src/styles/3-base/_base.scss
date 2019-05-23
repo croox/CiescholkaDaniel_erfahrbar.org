@@ -17,7 +17,14 @@ img {
     }
 }
 
+ul,
+ol {
+    @extend .pl-3;
+    @extend .py-3;
+}
+
 .list {
+
     &-style-none {
         list-style: none;
         @extend .p-0;
@@ -38,5 +45,25 @@ img {
                 @extend .mr-5;
             }
         }
+    }
+
+    &-item {
+        &-phone {
+
+        }
+
+        &-mail {
+
+        }
+    }
+}
+
+
+
+.container {
+    &-wide {
+        @extend .container-fluid;
+        @extend .p-0;
+        max-width: 2000px;  // ???
     }
 }
