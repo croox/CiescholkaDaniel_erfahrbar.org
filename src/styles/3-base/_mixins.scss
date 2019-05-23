@@ -4,7 +4,13 @@
     // https://colorzilla.com/gradient-editor/#6eb45c+0,93d981+100
     background-color: $green; // Old browsers
     @include filter-gradient( $green, $primary-light, horizontal); // IE6-9 fallback on horizontal gradient
-    @include background-image(linear-gradient(left top,  rgba($green,1) 0%,rgba($primary-light,1) 100%));
+    @include background-image(linear-gradient(left top,  rgba($green,1) 40%,rgba($primary-light,1) 100%));
+}
+
+@mixin erfahr_bg_gradient_light() {
+    background-color: $primary-light; // Old browsers
+    @include filter-gradient( $primary-light, lighten( $primary-light, 12% ), horizontal); // IE6-9 fallback on horizontal gradient
+    @include background-image(linear-gradient(left top,  rgba($primary-light,1) 40%,rgba($primary-light,1) 100%));
 }
 
 // https://codepen.io/manabox/pen/oZvZWx

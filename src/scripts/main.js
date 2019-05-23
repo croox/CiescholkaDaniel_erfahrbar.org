@@ -1,6 +1,7 @@
-$( document ).ready(function() {
+$( document ).ready( function() {
 
-    // TEMP:
-    console.log('Hola');
+    $( '.carousel' ).carousel( {
+		interval: 5000,
+    } )
 
-});
+} );
