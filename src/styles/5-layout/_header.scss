@@ -9,29 +9,34 @@
         @extend .row;
 
         & > * {
-            @extend .col;
             @extend .align-self-center;
             @extend .p-3;
+            @extend .text-right;
         }
 
         &-logo {
-            @extend .col-3;
-            @extend .text-right;
+            @extend .col-6;
+            @extend .col-sm-5;
+            @extend .col-md-4;
+            @extend .col-lg-3;
             @extend .border-bottom;
             @extend .border-primary;
         }
 
         &-contact {
-            @extend .col-4;
-            &, a {
+            @extend .col-#{ 12 - 6 };
+            @extend .col-sm-#{ 12 - 5 };
+            @extend .col-md-#{ 12 - 4 };
+            @extend .col-lg-#{ 12 - 3 };
+
+            a,
+            span {
                 @extend .text-secondary;
-                @extend .mr-5;
+                margin-right: map-get( $spacers, 2 );
+                @include media-breakpoint-up( sm ) {
+                    margin-right: map-get( $spacers, 5 );
+                }
             }
-        }
-
-        .col-spacer {
-
-
         }
 
     }
@@ -40,7 +45,12 @@
     &-banner {
         @extend .container-fluid;
         @extend .position-relative;
-        height: 340px;
+
+        height: 250px;
+        @include media-breakpoint-up( sm ) { height: 275px; }
+        @include media-breakpoint-up( md ) { height: 300px; }
+        @include media-breakpoint-up( lg ) { height: 325px; }
+        @include media-breakpoint-up( xl ) { height: 350px; }
 
         &-img {
             right: 0;
@@ -63,7 +73,11 @@
             }
 
             &-intend {
-                margin-left: 8%;
+                margin-left: map-get( $spacers, 1 );
+                @include media-breakpoint-up( sm ) { margin-left: map-get( $spacers, 3 ); }
+                @include media-breakpoint-up( md ) { margin-left: map-get( $spacers, 4 ); }
+                @include media-breakpoint-up( lg ) { margin-left: map-get( $spacers, 5 ); }
+
             }
 
             .heading-multiline {
@@ -73,9 +87,22 @@
                     @extend .px-3;
                     @include erfahr_bg_gradient();
                     &:not(:last-child):after {
-                        line-height: 2.2;
+                        line-height: 2.5;
+                        @include media-breakpoint-up( sm ) { line-height: 2.4; }
+                        @include media-breakpoint-up( md ) { line-height: 2.3; }
+                        @include media-breakpoint-up( lg ) { line-height: 2.2; }
                     }
                 }
+
+                @media (max-width: map-get( $grid-breakpoints, xssm ) ) {
+                    font-size: $h5-font-size;
+                    & > span {
+                        &:not(:last-child):after {
+                            line-height: 3;
+                        }
+                    }
+                }
+
             }
 
         }
@@ -88,13 +115,35 @@
         @extend .p-3;
         @include erfahr_bg_gradient();
 
+
         .card {
             @extend .text-center;
             @extend .bg-transparent;
             @extend .border-0;
+            word-wrap: normal;
+            &-text {
+                @include media-breakpoint-only( xs ) {
+                    font-size: $font-size-sm;
+                }
+            }
+        }
 
-            &-body {
-                @extend .pb-0;
+        & > .container-fluid {
+            max-width: 1500px;
+            margin: 0 auto;
+            & > .row {
+                & > div {
+                    @extend .col-6;
+                    @extend .col-md-3;
+                    @extend .align-self-center;
+
+                    @include last(2){
+                        .card-body { padding-bottom: 0; }
+                    }
+                    @include media-breakpoint-up( md ) {
+                        .card-body { padding-bottom: 0; }
+                    }
+                }
             }
         }
 
