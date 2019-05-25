@@ -19,6 +19,7 @@ const prod = Boolean(argv.prod);
 
 const paths = {
     html: './**/*.html',
+
     scripts: {
         src: {
             ours: ['src/scripts/*.js'],
@@ -30,13 +31,31 @@ const paths = {
         },
         dest: 'dist/scripts/'
     },
+
     styles: {
         src: {
             main: ['src/styles/main.scss'],
             ours: ['src/styles/**/*.scss']
         },
         dest: 'dist/styles/'
-    }
+    },
+
+
+    fonts: {
+        src: {
+            ours: ['src/fonts/**/*']
+        },
+        dest: 'dist/fonts/'
+    },
+
+
+    images: {
+        src: {
+            ours: ['src/img/**/*']
+        },
+        dest: 'dist/img/'
+    },
+
 };
 
 
@@ -73,6 +92,16 @@ const styles = () => {
         .pipe(prod ? noop() : stream());
 };
 
+const images = () => {
+    return gulp.src(paths.images.src.ours, {sourcemaps: true})
+        .pipe(gulp.dest(paths.images.dest));
+};
+
+const fonts = () => {
+    return gulp.src(paths.fonts.src.ours, {sourcemaps: true})
+        .pipe(gulp.dest(paths.fonts.dest));
+};
+
 
 /*
  * Server related
@@ -107,8 +136,24 @@ const watchHTML = () => gulp.watch(paths.html).on('change', gulp.series(html, re
 /*
  * Expose tasks
  */
-export const dev = gulp.series(clean, styles, scripts, serve, gulp.parallel(watchStyles, watchScripts, watchHTML));
-export const build = gulp.series(clean, styles, scripts);
+export const dev = gulp.series(
+	clean,
+	styles,
+	fonts,
+	images,
+	scripts,
+	serve,
+	gulp.parallel(watchStyles, watchScripts, watchHTML)
+);
+
+export const build = gulp.series(
+	clean,
+	styles,
+	fonts,
+	images,
+	scripts
+);
+
 export default prod ? build : dev;
 
 
