@@ -48,12 +48,34 @@ ol {
     }
 
     &-item {
-        &-phone {
 
-        }
+        $icon-height: $font-size-sm;
 
         &-mail {
+            &:before {
+                @include icon_mail();
+            }
+        }
 
+        &-phone {
+            &:before {
+                @include icon_phone();
+            }
+        }
+
+        &-phone,
+        &-mail {
+            list-style: none;
+            margin-left: - map-get( $spacers, 3 );
+            &:before {
+                display: inline-block;
+                vertical-align: middle;
+                content: ' ';
+                background-size: $icon-height $icon-height;
+                height: $icon-height;
+                width: $icon-height;
+                margin-right: map-get( $spacers, 1 );
+            }
         }
     }
 }
