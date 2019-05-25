@@ -11,7 +11,7 @@
         & > * {
             @extend .align-self-center;
             @extend .p-3;
-            @extend .text-right;
+            text-align: right;
         }
 
         &-logo {
@@ -21,6 +21,13 @@
             @extend .col-lg-3;
             @extend .border-bottom;
             @extend .border-primary;
+
+            img {
+                max-width: 100%;
+                @include media-breakpoint-only( xs ) {
+                    margin: 0 map-get( $spacers, 1 );
+                }
+            }
         }
 
         &-contact {
@@ -29,11 +36,19 @@
             @extend .col-md-#{ 12 - 4 };
             @extend .col-lg-#{ 12 - 3 };
 
+            @each $bp in (xs, xssm, sm) {
+                @include media-breakpoint-only( $bp ) {
+                    padding: 0 !important;
+                }
+            }
+
             a,
             span {
                 @extend .text-secondary;
-                margin-right: map-get( $spacers, 2 );
-                @include media-breakpoint-up( sm ) {
+
+                margin-right: map-get( $spacers, 4 );
+
+                @include media-breakpoint-up( xssm ) {
                     margin-right: map-get( $spacers, 5 );
                 }
             }
@@ -67,6 +82,8 @@
             @extend .row;
             @extend .position-relative;
             @extend .h-100;
+
+            white-space: nowrap;
 
             & > .col {
                 @extend .align-self-center;
@@ -121,9 +138,14 @@
             @extend .bg-transparent;
             @extend .border-0;
             word-wrap: normal;
-            &-text {
-                @include media-breakpoint-only( xs ) {
-                    font-size: $font-size-sm;
+            @each $bp in (xs, xssm) {
+                @include media-breakpoint-only( $bp ) {
+                    &-body {
+                        padding: map-get( $spacers, 2 );
+                    }
+                    &-text {
+                        font-size: $font-size-sm;
+                    }
                 }
             }
         }
@@ -131,6 +153,11 @@
         & > .container-fluid {
             max-width: 1500px;
             margin: 0 auto;
+            @each $bp in (xs, xssm) {
+                @include media-breakpoint-only( $bp ) {
+                    padding: 0;
+                }
+            }
             & > .row {
                 & > div {
                     @extend .col-6;

@@ -11,16 +11,18 @@ main {
         @extend .container-wide;
         &,
         & > .container {
-            @extend .py-5;
+            @extend .py-3;
+            @extend .py-sm-4;
+            @extend .py-lg-5;
 
             @include media-breakpoint-only( xs ) {
-                padding-left: map-get( $spacers, 5 );
-                padding-right: map-get( $spacers, 5 );
-            }
-
-            @media (max-width: map-get( $grid-breakpoints, xssm ) ) {
                 padding-left: map-get( $spacers, 4 );
                 padding-right: map-get( $spacers, 4 );
+            }
+
+            @include media-breakpoint-only( xssm ) {
+                padding-left: map-get( $spacers, 5 );
+                padding-right: map-get( $spacers, 5 );
             }
 
             @each $bp in (sm, md, lg) {
@@ -35,30 +37,12 @@ main {
                 @extend .col-12;
                 @extend .col-sm-4;
                 @extend .col-md-3;
-                // @extend .col-lg-3;
-
-                @each $bp in (sm, md) {
-                    @include media-breakpoint-only( $bp ) {
-                        padding-right: 0;
-                    }
-                }
             }
 
             .content {
                 @extend .col-#{ 12 };
                 @extend .col-sm-#{ 12 - 4 };
-                // @extend .col-md-#{ 12 - 4 };
                 @extend .col-lg-#{ 12 - 5 };
-
-                & > .row {
-                    &:last-child {
-                        @each $bp in (xs, sm) {
-                            @include media-breakpoint-only( $bp ) {
-                                flex-direction: column;
-                            }
-                        }
-                    }
-                }
 
                 &-main {
                     @extend .col-12;
@@ -78,16 +62,38 @@ main {
                     @extend .col-sm-11;
                     @extend .col-md-6;
                     @extend .col-lg-5;
+                }
+            }
 
-                    @each $bp in (xs, sm) {
+            .title {
+                @include media-breakpoint-only( xs ) {
+                    padding-left: map-get( $spacers, 3 );
+                    padding-right: map-get( $spacers, 3 );
+                }
+                @each $bp in (sm, md) {
+                    @include media-breakpoint-only( $bp ) {
+                        padding-left: map-get( $spacers, 2 );
+                        padding-right: map-get( $spacers, 2 );
+                    }
+                }
+            }
+            @each $bp in (xs, xssm, sm) {
+                .content {
+                    & > .row {
+                        &:last-child {
+                            @include media-breakpoint-only( $bp ) {
+                                flex-direction: column;
+                            }
+                        }
+                    }
+
+                    &-highlight {
                         @include media-breakpoint-only( $bp ) {
                             padding-right: map-get( $spacers, 5 );
                             align-self: flex-end;
                         }
                     }
-
                 }
-
             }
         }
 
@@ -99,16 +105,19 @@ main {
         @extend .text-justify;
         .row {
             .title {
-                @extend .text-right;
+                @include media-breakpoint-up( sm ) {
+                    text-align: right;
+                }
+
 
                 h1 {
                     font-size: $h1-font-size;
                     @include media-breakpoint-up( sm ) {
                         font-size: $h3-font-size;
                     }
-                    // @include media-breakpoint-up( md ) {
-                    //     font-size: $h3-font-size;
-                    // }
+                    @include media-breakpoint-up( md ) {
+                        font-size: $h3-font-size;
+                    }
                     @include media-breakpoint-up( lg ) {
                         font-size: $h2-font-size;
                     }
@@ -219,7 +228,6 @@ main {
          */
 
         &#idee {
-            // ...
             &,
             & > .container {
                 @extend .pb-0;
@@ -228,13 +236,11 @@ main {
 
         &#ziel {
             // ...
-
-
         }
 
         &#profile {
 
-            @each $bp in (xs, sm) {
+            @each $bp in (xs, xssm, sm) {
                 @include media-breakpoint-only( $bp ) {
                     img {
                         max-width: 250px;
