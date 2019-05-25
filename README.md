@@ -28,11 +28,9 @@ gulp --prod
 
 ## Requirements
 
-???
-gulp cli globally installed
-sass
-compass
-
+- gulp cli globally installed
+- sass
+- compass
 
 ## Credits
 
