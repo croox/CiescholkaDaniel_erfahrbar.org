@@ -117,6 +117,7 @@ const stream = () => server.reload({stream: true});
 
 const serve = (done) => {
     server.init({
+        // host: "192.168.42.243",
         server: {
             baseDir: './'
         }

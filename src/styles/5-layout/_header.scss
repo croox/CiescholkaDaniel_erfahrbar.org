@@ -75,10 +75,10 @@
             background-repeat: no-repeat;
             background-attachment: scroll;
             background-position: center;
-            background-image: url("../img/00_Header_320w.png");
-            @include media-breakpoint-up( xssm ) { background-image: url("../img/00_Header_480w.png"); }
-            @include media-breakpoint-up( md ) { background-image: url("../img/00_Header_700w.png"); }
-            @include media-breakpoint-up( lg ) { background-image: url("../img/00_Header_1000w.png"); }
+            background-image: url("../img/00_Header_320w.webp");
+            @include media-breakpoint-up( xssm ) { background-image: url("../img/00_Header_480w.webp"); }
+            @include media-breakpoint-up( md ) { background-image: url("../img/00_Header_700w.webp"); }
+            @include media-breakpoint-up( lg ) { background-image: url("../img/00_Header_1000w.webp"); }
         }
 
         &-title-wrapper {

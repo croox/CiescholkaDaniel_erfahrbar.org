@@ -1,5 +1,13 @@
 /* Base Styles -------------------- */
 
+
+// Remove the margin in all browsers.
+html,
+body {
+    overflow-x: hidden;
+	margin: 0;
+}
+
 .heading-multiline {
     & > span {
         &:not(:last-child):after {

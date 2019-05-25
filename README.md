@@ -29,13 +29,23 @@ gulp _serve
 
 # minify CSS/JS and builds into the dist directory, ready for production
 gulp --prod
+
+# convert all png within a directory to webp
+for i in ./src/img/*.png; do cwebp $i -o ${i/png/webp}; done
 ```
+
+### FAQ
+
+#### Incorrect External Browsersync url
+
+Read the [docs](https://www.browsersync.io/docs#external-url)
+and uncomment and set the `host` option in `server.init` in `gulpfile.babel.js`.
 
 ## Requirements
 
-- gulp cli globally installed
-- sass
-- compass
+- 'gulp-cli' globally installed
+- 'sass' **and 'compass'**
+- 'cwebp' to convert images to webp
 
 ## Credits
 
