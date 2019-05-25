@@ -18,7 +18,6 @@ import {argv} from 'yargs';
 const prod = Boolean(argv.prod);
 
 const paths = {
-    html: './**/*.html',
 
     scripts: {
         src: {
@@ -40,20 +39,19 @@ const paths = {
         dest: 'dist/styles/'
     },
 
-
     fonts: {
-        src: {
-            ours: ['src/fonts/**/*']
-        },
+        src: ['src/fonts/**/*'],
         dest: 'dist/fonts/'
     },
 
-
     images: {
-        src: {
-            ours: ['src/img/**/*']
-        },
+        src: ['src/img/**/*'],
         dest: 'dist/img/'
+    },
+
+    html: {
+        src: ['src/**/*.html'],
+        dest: 'dist/'
     },
 
 };
@@ -64,17 +62,15 @@ const paths = {
  */
 const clean = () => del(['dist']);
 
-const html = (done) => {
-    // TODO:
-    // Allow for partials?
-    // Also leaving this function here for now to allow for more verbose logging
-    done();
+const html = () => {
+    return gulp.src(paths.html.src, {sourcemaps: true})
+        .pipe(gulp.dest(paths.html.dest));
 };
 
 const scripts = () => {
     return gulp.src(paths.scripts.src.vendors.concat(paths.scripts.src.ours), {sourcemaps: true})
         .pipe(babel())
-        .pipe(prod ? concat('index.min.js') : concat('index.js'))
+        .pipe( concat('index.min.js') )
         .pipe(prod ? uglify() : noop())
         .pipe(gulp.dest(paths.scripts.dest));
 };
@@ -89,22 +85,21 @@ const styles = () => {
             ]
         })
 		.on('error', compileSass.logError))
-        .pipe(prod ? rename('main.min.css') : rename('main.css'))
+        .pipe( rename('main.min.css') )
         .pipe(prod ? minifyCSS() : noop())
         .pipe(gulp.dest(paths.styles.dest))
         .pipe(prod ? noop() : stream());
 };
 
 const images = () => {
-    return gulp.src(paths.images.src.ours, {sourcemaps: true})
+    return gulp.src(paths.images.src, {sourcemaps: true})
         .pipe(gulp.dest(paths.images.dest));
 };
 
 const fonts = () => {
-    return gulp.src(paths.fonts.src.ours, {sourcemaps: true})
+    return gulp.src(paths.fonts.src, {sourcemaps: true})
         .pipe(gulp.dest(paths.fonts.dest));
 };
-
 
 /*
  * Server related
@@ -122,7 +117,7 @@ const serve = (done) => {
     server.init({
         // host: "192.168.42.243",
         server: {
-            baseDir: './'
+            baseDir: './dist/'
         }
     });
     done();
@@ -134,7 +129,7 @@ const serve = (done) => {
  */
 const watchStyles = () => gulp.watch(paths.styles.src.ours, styles);
 const watchScripts = () => gulp.watch(paths.scripts.src.ours, gulp.series(scripts, reload));
-const watchHTML = () => gulp.watch(paths.html).on('change', gulp.series(html, reload));
+const watchHTML = () => gulp.watch(paths.html.src).on('change', gulp.series(html, reload));
 
 /*
  * Expose tasks
@@ -146,6 +141,7 @@ export const dev = gulp.series(
 	clean,
 	styles,
 	fonts,
+	html,
 	images,
 	scripts,
 	serve,
@@ -156,6 +152,7 @@ export const build = gulp.series(
 	clean,
 	styles,
 	fonts,
+	html,
 	images,
 	scripts
 );
