@@ -83,9 +83,12 @@ const styles = () => {
     return gulp.src(paths.styles.src.main, {sourcemaps: true})
         .pipe(compileSass({
 			importer: compass,
-            outputStyle: 'expanded'
+            outputStyle: 'expanded',
+            includePaths: [
+				'./node_modules/family.scss/source/src',
+            ]
         })
-            .on('error', compileSass.logError))
+		.on('error', compileSass.logError))
         .pipe(prod ? rename('main.min.css') : rename('main.css'))
         .pipe(prod ? minifyCSS() : noop())
         .pipe(gulp.dest(paths.styles.dest))
