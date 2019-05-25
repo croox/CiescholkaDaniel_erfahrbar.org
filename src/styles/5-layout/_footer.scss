@@ -12,7 +12,22 @@
         justify-content: space-between;
         & > * {
             @extend .align-self-center;
-            @extend .p-4;
+
+            @extend .p-2;
+
+            @extend .p-sm-4;
+
+            @each $bp in (xs ,xssm) {
+                @include media-breakpoint-only( $bp ) {
+                    text-align: center;
+                    width: 100%;
+
+                    &:not(:last-child){
+                        padding-bottom: 0 !important;
+                    }
+
+                }
+            }
         }
     }
 
@@ -23,6 +38,11 @@
     &-nav {
         ul {
             @extend .list-inline;
+            @each $bp in (xs ,xssm) {
+                @include media-breakpoint-only( $bp ) {
+                    padding: map-get( $spacers, 2 ) !important;
+                }
+            }
         }
     }
 
