@@ -132,10 +132,12 @@ const watchStyles = () => gulp.watch(paths.styles.src.ours, styles);
 const watchScripts = () => gulp.watch(paths.scripts.src.ours, gulp.series(scripts, reload));
 const watchHTML = () => gulp.watch(paths.html).on('change', gulp.series(html, reload));
 
-
 /*
  * Expose tasks
  */
+export const _serve = gulp.series(
+	serve
+);
 export const dev = gulp.series(
 	clean,
 	styles,

@@ -18,13 +18,18 @@ liegen hier unter assets
 ## Development
 
 ```
+# list gulp tasks
+gulp --tasks
+
 # Start localhost server with browser-sync, watches HTML, Sass, JS with hot reloading
 gulp
+
+# Start localhost server and serve from dist directory without build
+gulp _serve
 
 # minify CSS/JS and builds into the dist directory, ready for production
 gulp --prod
 ```
-
 
 ## Requirements
 
