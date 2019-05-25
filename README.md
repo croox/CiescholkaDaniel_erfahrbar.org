@@ -43,9 +43,9 @@ and uncomment and set the `host` option in `server.init` in `gulpfile.babel.js`.
 
 ## Requirements
 
-- 'gulp-cli' globally installed
-- 'sass' **and 'compass'**
-- 'cwebp' to convert images to webp
+- `gulp-cli` globally installed
+- `sass` **and `compass`**
+- `cwebp` to convert images to webp
 
 ## Credits
 
