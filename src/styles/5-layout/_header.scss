@@ -141,6 +141,8 @@
             @extend .bg-transparent;
             @extend .border-0;
             word-wrap: normal;
+            display: flex;
+            align-items: center;
             @each $bp in (xs, xssm) {
                 @include media-breakpoint-only( $bp ) {
                     &-body {
