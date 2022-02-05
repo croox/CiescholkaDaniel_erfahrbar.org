@@ -2,9 +2,9 @@
 
 @mixin erfahr_bg_gradient() {
     // https://colorzilla.com/gradient-editor/#6eb45c+0,93d981+100
-    background-color: $green; // Old browsers
-    @include filter-gradient( $green, $primary-light, horizontal); // IE6-9 fallback on horizontal gradient
-    @include background-image(linear-gradient(left top,  rgba($green,1) 40%,rgba($primary-light,1) 100%));
+    background-color: $primary; // Old browsers
+    @include filter-gradient( $primary, $primary-light, horizontal); // IE6-9 fallback on horizontal gradient
+    @include background-image(linear-gradient(left top,  rgba($primary,1) 40%,rgba($primary-light,1) 100%));
 }
 
 @mixin erfahr_bg_gradient_light() {
