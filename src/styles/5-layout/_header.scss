@@ -4,29 +4,38 @@
 .header {
     @extend .container-wide;
 
-    &-branding {
+    &-intend {
+        margin-left: map-get( $spacers, 1 );
+        @include media-breakpoint-up( sm ) { margin-left: map-get( $spacers, 3 ); }
+        @include media-breakpoint-up( md ) { margin-left: map-get( $spacers, 4 ); }
+        @include media-breakpoint-up( lg ) { margin-left: map-get( $spacers, 5 ); }
+    }
 
+    &-branding {
         @extend .row;
+        @extend .mx-0;
 
         & > * {
             @extend .align-self-center;
-            @extend .p-3;
+            @extend .pt-3;
             text-align: right;
         }
 
         &-logo {
+            @extend .pb-0;
             @extend .col-6;
             @extend .col-sm-5;
             @extend .col-md-4;
             @extend .col-lg-3;
-            @extend .border-bottom;
-            @extend .border-primary;
 
             img {
                 max-width: 100%;
                 @include media-breakpoint-only( xs ) {
                     margin: 0 map-get( $spacers, 1 );
                 }
+                @extend .border-bottom;
+                @extend .border-primary;
+                @extend .pb-2;
             }
         }
 
@@ -90,14 +99,6 @@
 
             & > .col {
                 @extend .align-self-center;
-            }
-
-            &-intend {
-                margin-left: map-get( $spacers, 1 );
-                @include media-breakpoint-up( sm ) { margin-left: map-get( $spacers, 3 ); }
-                @include media-breakpoint-up( md ) { margin-left: map-get( $spacers, 4 ); }
-                @include media-breakpoint-up( lg ) { margin-left: map-get( $spacers, 5 ); }
-
             }
 
             .heading-multiline {
