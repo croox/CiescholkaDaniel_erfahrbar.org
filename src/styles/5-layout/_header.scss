@@ -27,15 +27,12 @@
             @extend .col-sm-5;
             @extend .col-md-4;
             @extend .col-lg-3;
-
+            max-width: 200px;
             img {
                 max-width: 100%;
                 @include media-breakpoint-only( xs ) {
                     margin: 0 map-get( $spacers, 1 );
                 }
-                @extend .border-bottom;
-                @extend .border-primary;
-                @extend .pb-2;
             }
         }
 
@@ -76,18 +73,11 @@
         @include media-breakpoint-up( lg ) { height: 325px; }
         @include media-breakpoint-up( xl ) { height: 350px; }
 
-        &-img {
+        &-img-container {
+            overflow: hidden;
             right: 0;
             height: 100%;
             width: 55%;
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-attachment: scroll;
-            background-position: center;
-            background-image: url("../img/00_Header_320w.webp");
-            @include media-breakpoint-up( xssm ) { background-image: url("../img/00_Header_480w.webp"); }
-            @include media-breakpoint-up( md ) { background-image: url("../img/00_Header_700w.webp"); }
-            @include media-breakpoint-up( lg ) { background-image: url("../img/00_Header_1000w.webp"); }
         }
 
         &-title-wrapper {
@@ -182,4 +172,44 @@
 
     }
 
+}
+
+
+
+#naturcamp-carousel {
+    height: 100%;
+    position: relative;
+
+
+    .carousel-inner {
+        position: relative;
+        height: 100%;
+        width: 100;
+    }
+    .carousel-item {
+        position: relative;
+        height: 100%;
+        width: 100;
+        img {
+            object-fit: cover;
+            height: 100%;
+            width: 100%;
+        }
+    }
+
+
+}
+
+#idee .header-banner-img {
+    position: relative;
+    height: 100%;
+    width: 100;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: center;
+    background-image: url("../img/00_Header_320w.webp");
+    @include media-breakpoint-up( xssm ) { background-image: url("../img/00_Header_480w.webp"); }
+    @include media-breakpoint-up( md ) { background-image: url("../img/00_Header_700w.webp"); }
+    @include media-breakpoint-up( lg ) { background-image: url("../img/00_Header_1000w.webp"); }
 }
