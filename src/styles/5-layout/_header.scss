@@ -174,30 +174,9 @@
 
 }
 
-
-
 #naturcamp-carousel {
     height: 100%;
     position: relative;
-
-
-    .carousel-inner {
-        position: relative;
-        height: 100%;
-        width: 100;
-    }
-    .carousel-item {
-        position: relative;
-        height: 100%;
-        width: 100;
-        img {
-            object-fit: cover;
-            height: 100%;
-            width: 100%;
-        }
-    }
-
-
 }
 
 #idee .header-banner-img {
@@ -212,4 +191,38 @@
     @include media-breakpoint-up( xssm ) { background-image: url("../img/00_Header_480w.webp"); }
     @include media-breakpoint-up( md ) { background-image: url("../img/00_Header_700w.webp"); }
     @include media-breakpoint-up( lg ) { background-image: url("../img/00_Header_1000w.webp"); }
+}
+
+#idee-carousel {
+    &-container {
+        position: relative;
+        overflow: hidden;
+        height: 300px;
+        @include media-breakpoint-up( md ) {
+            height: 350px;
+        }
+        @include media-breakpoint-up( xl ) {
+            height: 400px;
+        }
+    }
+    position: relative;
+    height: 100%;
+}
+
+.carousel {
+    &-inner {
+        position: relative;
+        height: 100%;
+        width: 100;
+    }
+    &-item {
+        position: relative;
+        height: 100%;
+        width: 100;
+        img {
+            object-fit: cover;
+            height: 100%;
+            width: 100%;
+        }
+    }
 }
