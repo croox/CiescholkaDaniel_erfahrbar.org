@@ -6600,7 +6600,7 @@ button.bg-dark:focus {
   border-right: 1px solid #dee2e6 !important;
 }
 
-.border-bottom, .header-branding-logo img {
+.border-bottom {
   border-bottom: 1px solid #dee2e6 !important;
 }
 
@@ -6628,7 +6628,7 @@ button.bg-dark:focus {
   border-left: 0 !important;
 }
 
-.border-primary, .header-branding-logo img {
+.border-primary {
   border-color: #5ad8c0 !important;
 }
 
@@ -8096,7 +8096,7 @@ main > .section#idee > .container, main > .section#idee > .footer,
   padding-right: 0.5rem !important;
 }
 
-.pb-2, .header-branding-logo img,
+.pb-2,
 .py-2,
 .header-banner-title-wrapper .heading-multiline > span {
   padding-bottom: 0.5rem !important;
@@ -10516,6 +10516,10 @@ img.cover-x {
   text-align: right;
 }
 
+.header-branding-logo {
+  max-width: 200px;
+}
+
 .header-branding-logo img {
   max-width: 100%;
 }
@@ -10584,33 +10588,11 @@ img.cover-x {
   }
 }
 
-.header-banner-img {
+.header-banner-img-container {
+  overflow: hidden;
   right: 0;
   height: 100%;
   width: 55%;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: scroll;
-  background-position: center;
-  background-image: url("../img/00_Header_320w.webp");
-}
-
-@media (min-width: 411px) {
-  .header-banner-img {
-    background-image: url("../img/00_Header_480w.webp");
-  }
-}
-
-@media (min-width: 782px) {
-  .header-banner-img {
-    background-image: url("../img/00_Header_700w.webp");
-  }
-}
-
-@media (min-width: 992px) {
-  .header-banner-img {
-    background-image: url("../img/00_Header_1000w.webp");
-  }
 }
 
 .header-banner-title-wrapper {
@@ -10719,6 +10701,81 @@ img.cover-x {
   .header-features > .container-fluid > .row > div .card-body, .header-features > .container-wide > .row > div .card-body, .header-features > .header > .row > div .card-body, main.header-features > .section > .row > div .card-body, .header-features > .header-banner > .row > div .card-body, .header-features > .header-features > .row > div .card-body, .header-features > .container-fluid > .header-branding > div .card-body, .header-features > .container-wide > .header-branding > div .card-body, .header-features > .header > .header-branding > div .card-body, main.header-features > .section > .header-branding > div .card-body, .header-features > .header-banner > .header-branding > div .card-body, .header-features > .header-features > .header-branding > div .card-body, .header-features > .container-fluid > .header-banner-title-wrapper > div .card-body, .header-features > .container-wide > .header-banner-title-wrapper > div .card-body, .header-features > .header > .header-banner-title-wrapper > div .card-body, main.header-features > .section > .header-banner-title-wrapper > div .card-body, .header-features > .header-banner > .header-banner-title-wrapper > div .card-body, .header-features > .header-features > .header-banner-title-wrapper > div .card-body, main > .section .carousel .header-features > .container-fluid > .controls > div .card-body, main > .section .carousel .header-features > .container-wide > .controls > div .card-body, main > .section .carousel .header-features > .header > .controls > div .card-body, main > .section .carousel main.header-features > .section > .controls > div .card-body, main > .section .carousel .header-features > .header-banner > .controls > div .card-body, main > .section .carousel .header-features > .header-features > .controls > div .card-body {
     padding-bottom: 0;
   }
+}
+
+#naturcamp-carousel {
+  height: 100%;
+  position: relative;
+}
+
+#idee .header-banner-img {
+  position: relative;
+  height: 100%;
+  width: 100;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: center;
+  background-image: url("../img/00_Header_320w.webp");
+}
+
+@media (min-width: 411px) {
+  #idee .header-banner-img {
+    background-image: url("../img/00_Header_480w.webp");
+  }
+}
+
+@media (min-width: 782px) {
+  #idee .header-banner-img {
+    background-image: url("../img/00_Header_700w.webp");
+  }
+}
+
+@media (min-width: 992px) {
+  #idee .header-banner-img {
+    background-image: url("../img/00_Header_1000w.webp");
+  }
+}
+
+#idee-carousel {
+  position: relative;
+  height: 100%;
+}
+
+#idee-carousel-container {
+  position: relative;
+  overflow: hidden;
+  height: 300px;
+}
+
+@media (min-width: 782px) {
+  #idee-carousel-container {
+    height: 350px;
+  }
+}
+
+@media (min-width: 1200px) {
+  #idee-carousel-container {
+    height: 400px;
+  }
+}
+
+.carousel-inner {
+  position: relative;
+  height: 100%;
+  width: 100;
+}
+
+.carousel-item {
+  position: relative;
+  height: 100%;
+  width: 100;
+}
+
+.carousel-item img {
+  object-fit: contain;
+  height: 100%;
+  width: 100%;
 }
 
 main > .section {
@@ -10911,6 +10968,7 @@ main > .section .carousel .controls {
   top: 0;
   width: 100%;
   justify-content: flex-end;
+  z-index: 15;
 }
 
 main > .section .carousel .controls > a {
