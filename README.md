@@ -16,6 +16,7 @@ linear gradient:
 liegen hier unter assets
 
 ## Development
+- now via wp-static
 
 ```
 # list gulp tasks
